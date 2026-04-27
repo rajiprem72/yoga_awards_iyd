@@ -6,9 +6,53 @@
 <title>Yoga Awards IYD 2026</title>
 <style>
 *{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#0b0b0b;color:#fff;line-height:1.6}a{color:#ffd86b}header{background:linear-gradient(135deg,#000,#4a3200,#000);padding:20px;text-align:center;position:relative}header h1{font-size:clamp(28px,6vw,64px);margin:10px 0;color:#ffd86b}header p{margin:4px 0}.hero{background:url('/mnt/data/yoga_awards.jpg') center/cover no-repeat;min-height:420px;display:flex;align-items:center;justify-content:center;position:relative}.hero:before{content:'';position:absolute;inset:0;background:rgba(0,0,0,.55)}.hero .box{position:relative;max-width:900px;padding:24px;text-align:center}.hero h2{font-size:clamp(26px,5vw,54px);margin:0;color:#fff}.hero .cta a{display:inline-block;margin:10px;padding:14px 22px;background:#ffd86b;color:#000;text-decoration:none;border-radius:8px;font-weight:bold}.container{max-width:1200px;margin:auto;padding:24px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}.card{background:#151515;border:1px solid #333;padding:20px;border-radius:16px}.card h3{color:#ffd86b;margin-top:0}.badge{display:inline-block;background:#7a0000;padding:8px 14px;border-radius:20px;margin:8px 0}.list li{margin:8px 0}.formbox iframe{width:100%;height:900px;border:0;border-radius:16px;background:#fff}.footer{padding:30px;text-align:center;background:#111;color:#ccc}.small{font-size:14px;color:#ddd}@media(max-width:700px){.hero{min-height:300px}}
+/* FULL WIDTH RESPONSIVE BANNER */
+.hero-banner{
+    width:100%;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    background:#000;
+}
+
+/* IMAGE SETTINGS */
+.hero-banner img{
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit:cover;
+}
+
+/* DESKTOP */
+@media (min-width:1200px){
+.hero-banner img{
+    max-height:720px;
+}
+}
+
+/* LAPTOP */
+@media (min-width:768px) and (max-width:1199px){
+.hero-banner img{
+    max-height:600px;
+}
+}
+
+/* MOBILE */
+@media (max-width:767px){
+.hero-banner img{
+    width:100%;
+    height:auto;
+}
+}
+
 </style>
 </head>
 <body>
+<!-- HERO BANNER SECTION -->
+<section class="hero-banner">
+    <img src="banner.png" alt="Yoga Awards 2026 Banner">
+</section>
+  
 <header>
 <p>12th International Yoga Day – 2026</p>
 <h1>YOGA AWARDS</h1>
