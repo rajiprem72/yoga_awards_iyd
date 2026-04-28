@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nominee Report</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:20px;
+    background:#f5f5f5;
+}
+h1,h2{
+    color:#333;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:#fff;
+}
+th,td{
+    padding:10px;
+    border:1px solid #ccc;
+    text-align:left;
+}
+th{
+    background:#007bff;
+    color:white;
+}
+tr:nth-child(even){
+    background:#f9f9f9;
+}
+a{
+    color:#007bff;
+    text-decoration:none;
+}
+a:hover{
+    text-decoration:underline;
+}
+.card{
+    background:#fff;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 0 8px rgba(0,0,0,0.1);
+}
+.section{
+    margin-bottom:25px;
+}
+.label{
+    font-weight:bold;
+    color:#444;
+}
+.back-btn{
+    display:inline-block;
+    margin-bottom:20px;
+    padding:8px 14px;
+    background:#007bff;
+    color:#fff;
+    border-radius:5px;
+}
+.back-btn:hover{
+    background:#0056b3;
+}
+</style>
+</head>
+
+<body>
+
+<div id="app">Loading...</div>
+
+<script>
+const SHEET_ID = "1-X-Toc0x4G-gqJNJlIMLpQZkkGLihm9LVy1cltVcIR0";
+const SHEET_NAME = "Form Responses 1";   // change if needed
+
+const url =
+`https://opensheet.elk.sh/${SHEET_ID}/${encodeURIComponent(SHEET_NAME)}`;
+
+fetch(url)
+.then(res => res.json())
+.then(data => {
+
+    const params = new URLSearchParams(window.location.search);
+    const nominee = params.get("name");
+
+    if(nominee){
+        showDetails(data, nominee);
+    }else{
+        showList(data);
+    }
+
+})
+.catch(err=>{
+    document.getElementById("app").innerHTML="Error loading data";
+});
+
+function showList(data){
+
+    data.sort((a,b)=>
+        a["Full Name of Nominee"].localeCompare(b["Full Name of Nominee"])
+    );
+
+    let html = `
+    <h1>Nominee Report</h1>
+    <table>
+        <tr>
+            <th>Full Name of Nominee</th>
+            <th>Mobile Number</th>
+            <th>Email ID</th>
+        </tr>
+    `;
+
+    data.forEach(row=>{
+
+        const name = row["Full Name of Nominee"];
+
+        html += `
+        <tr>
+            <td>
+                <a href="?name=${encodeURIComponent(name)}">
+                ${name}
+                </a>
+            </td>
+            <td>${row["Mobile Number"] || ""}</td>
+            <td>${row["Email ID"] || ""}</td>
+        </tr>
+        `;
+    });
+
+    html += "</table>";
+
+    document.getElementById("app").innerHTML = html;
+}
+
+function showDetails(data, nominee){
+
+    const row = data.find(r => r["Full Name of Nominee"] === nominee);
+
+    if(!row){
+        document.getElementById("app").innerHTML = "Nominee not found";
+        return;
+    }
+
+    let html = `
+    <a href="nominee.html" class="back-btn">← Back to List</a>
+
+    <div class="card">
+
+    <h1>${row["Full Name of Nominee"]}</h1>
+
+    <div class="section">
+    <h2>PERSONAL DETAILS</h2>
+
+    <p><span class="label">Full Name:</span> ${row["Full Name of Nominee"]}</p>
+    <p><span class="label">Date of Birth / Age:</span> ${row["Date of Birth / Age"]}</p>
+    <p><span class="label">Gender:</span> ${row["Gender"]}</p>
+    <p><span class="label">City / State / Country:</span> ${row["City / State / Country"]}</p>
+    <p><span class="label">Mobile Number:</span> ${row["Mobile Number"]}</p>
+    <p><span class="label">WhatsApp Number:</span> ${row["WhatsApp Number"]}</p>
+    <p><span class="label">Email ID:</span> ${row["Email ID"]}</p>
+    </div>
+
+    <div class="section">
+    <h2>AWARD DETAILS</h2>
+
+    <p><span class="label">Award Category Applying For:</span> ${row["Award Category Applying For"]}</p>
+    <p><span class="label">Website / Social Media:</span> ${row["Website / Social Media"]}</p>
+    <p><span class="label">Years of Experience:</span> ${row["Years of Experience"]}</p>
+    </div>
+
+    <div class="section">
+    <h2>DETAILED PROFILE</h2>
+
+    <p><span class="label">Brief Profile:</span><br>${row["Brief Profile"]}</p>
+    <p><span class="label">Major Contributions / Achievements:</span><br>${row["Major Contributions / Achievements"]}</p>
+    <p><span class="label">Awards / Records / Recognitions:</span><br>${row["Awards / Records / Recognitions"]}</p>
+    </div>
+
+    <div class="section">
+    <h2>DOCUMENTS</h2>
+
+    <p><a href="${row["Photo"]}" target="_blank">View Photo</a></p>
+    <p><a href="${row["ID Proof (Aadhar / Pan Card / Driving License)"]}" target="_blank">View ID Proof</a></p>
+    <p><a href="${row["Certificates"]}" target="_blank">View Certificates</a></p>
+    </div>
+
+    <div class="section">
+    <h2>DECLARATION</h2>
+    <p>${row["Declaration"]}</p>
+    </div>
+
+    </div>
+    `;
+
+    document.getElementById("app").innerHTML = html;
+}
+</script>
+
+</body>
+</html>
