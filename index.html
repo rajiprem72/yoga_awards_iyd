@@ -45,6 +45,71 @@
 }
 }
 
+.organizer-section {
+  background: #111;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.organizer-card {
+  max-width: 1000px;
+  background: linear-gradient(145deg, #1a1a1a, #101010);
+  border: 2px solid #d4a53a;
+  border-radius: 18px;
+  padding: 35px;
+  color: #f5f5f5;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.small-title {
+  font-size: 34px;
+  color: #ffffff;
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+
+.main-title {
+  font-size: 42px;
+  color: #d4a53a;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 24px;
+  line-height: 1.8;
+  color: #d8d8d8;
+  margin-bottom: 25px;
+}
+
+.achievements h4 {
+  color: #d4a53a;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.achievements ul {
+  padding-left: 25px;
+}
+
+.achievements li {
+  font-size: 22px;
+  margin-bottom: 12px;
+  line-height: 1.7;
+  color: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+  .small-title { font-size: 26px; }
+  .main-title { font-size: 32px; }
+  .description { font-size: 18px; }
+  .achievements h4 { font-size: 24px; }
+  .achievements li { font-size: 18px; }
+}
+
+    
 </style>
 </head>
 <body>
@@ -132,4 +197,32 @@ Open Registration Form
 </section>
 </div>
 <div class='footer'>© 2026 Yoga Awards • International Yoga Day</div>
+<section class="organizer-section">
+  <div class="organizer-card">
+    <h3 class="small-title">Organizer</h3>
+    
+    <h2 class="main-title">Global School of Yoga</h2>
+    
+    <p class="description">
+      One of the leading yoga professionals in Chennai, serving and inspiring lakhs of people for more than a decade. 
+      Since 2003, Global School of Yoga has transformed lives through wellness, discipline, and holistic health practices. 
+      The institution has trained over 2 lakh people, created more than 1000 yoga trainers, and established remarkable yoga world records 
+      promoting awareness for health, fitness, and environmental causes.
+    </p>
+
+    <div class="achievements">
+      <h4>Achievements</h4>
+      <ul>
+        <li>Teaching yoga for more than 2 lakh people since 2003</li>
+        <li>Created more than 1000 yoga trainers under expert supervision</li>
+        <li>Performed 108 Surya Namaskar in 45 mins in 2012 under Guruji Shri Shri Ravishankar Ji</li>
+        <li>Made 1000 students perform Tree Yoga Pose to create awareness on planting trees</li>
+        <li>Achieved longest retention of Karppa Pindasana (21 mins 21 sec) for breast cancer awareness in 2022</li>
+        <li>Achieved longest Kapalapathi Kriya breathing exercise (40 mins) on nail bed for Asthma awareness</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+    
 </body></html>
