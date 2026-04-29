@@ -268,6 +268,64 @@
     font-size:20px;
   }
 }
+
+.contact-section{
+  background:#000;
+  padding:30px;
+  display:flex;
+  justify-content:center;
+}
+
+.contact-card{
+  width:100%;
+  max-width:700px;
+  background:linear-gradient(145deg,#1d1a1a,#151313);
+  border:2px solid #b98b2f;
+  border-radius:24px;
+  padding:35px 30px;
+  font-family:'Segoe UI',sans-serif;
+  box-shadow:0 10px 25px rgba(0,0,0,.45);
+}
+
+.contact-title{
+  color:#f4f4f4;
+  font-size:34px;
+  font-weight:700;
+  margin-bottom:30px;
+}
+
+.contact-info .label{
+  color:#d4d4d4;
+  font-size:26px;
+  font-weight:600;
+  margin-bottom:15px;
+}
+
+.phone-number{
+  color:#ffffff;
+  font-size:28px;
+  margin:10px 0;
+  letter-spacing:1px;
+}
+
+@media(max-width:768px){
+  .contact-card{
+    padding:25px 20px;
+  }
+
+  .contact-title{
+    font-size:26px;
+  }
+
+  .contact-info .label{
+    font-size:20px;
+  }
+
+  .phone-number{
+    font-size:22px;
+  }
+}
+    
 </style>
 </head>
 <body>
@@ -439,6 +497,21 @@ Open Registration Form
   </div>
 </section>
 
+<section class="contact-section">
+  <div class="contact-card">
+
+    <h2 class="contact-title">Contact & Registration</h2>
+
+    <div class="contact-info">
+      <p class="label">Contact:</p>
+
+      <p class="phone-number">+91 96771 62580</p>
+      <p class="phone-number">+91 82485 79145</p>
+    </div>
+
+  </div>
+</section>
+    
 
 <script>
 function updateCountdown() {
